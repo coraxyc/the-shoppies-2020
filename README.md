@@ -1,4 +1,6 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Demo
+![Demo video walkthrough](https://github.com/coraxyc/the-shoppies-2020/blob/master/demo.gif)
 
 ## Available Scripts
 
