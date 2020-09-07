@@ -1,0 +1,27 @@
+body {
+  background-color: #e8eff0;
+}
+
+button {
+  height: 25px;
+  margin-left: 5px;
+}
+.App {
+  margin: 5% 20%;
+  min-width: 400px;
+}
+
+.Column {
+  display: block;
+
+}
+
+.Row {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.Search {
+  width: 98%;
+  padding: 8px;
+}
