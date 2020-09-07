@@ -12,13 +12,12 @@ function App() {
   const [nominations, setNominations] = useState([]);
 
   useEffect(() => {
-    fetch(`http://www.omdbapi.com/?s=${searchQuery}&apikey=${API_KEY}`)
+    fetch(`https://www.omdbapi.com/?s=${searchQuery}&apikey=${API_KEY}`)
       .then(response => response)
       .then(response => response.json())
       .then(response => {
         if (response.Response === 'False') {
           setError(response.Error);
-          console.log(error);
         }
         else {
           const info = 
@@ -28,7 +27,6 @@ function App() {
               ), []
             );
           setData(info);
-          console.log(info);
         }
       })
       .catch(({ message }) => {
