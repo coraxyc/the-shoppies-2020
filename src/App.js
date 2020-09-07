@@ -35,7 +35,11 @@ function App() {
   }, [searchQuery]);
 
   const addNominatedMovie = (movie) => {
-    setNominations([...nominations, movie]);
+    if(nominations.length == 5) {
+      alert("You can only have up to 5 nominations.")
+    } else {
+      setNominations([...nominations, movie]);
+    }
   }
 
   const removeNominatedMovie = (movieToRemove) => {
@@ -94,7 +98,7 @@ function App() {
                     </div>)}
                 </ul>
               : <div>
-                  You don't have any nominations yet. Nominate some movies!
+                  You don't have any nominations yet. You can nominate up to 5 movies.
                 </div>
             }
           </Card>
