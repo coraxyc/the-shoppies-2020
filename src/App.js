@@ -10,7 +10,7 @@ const MAX_NOMINATIONS_LEN = 5;
 function App() {
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState("");
   const [nominations, setNominations] = useState([]);
 
   useEffect(() => {
@@ -42,7 +42,7 @@ function App() {
   }, [searchQuery]);
 
   const addNominatedMovie = (movie) => {
-    if (nominations.length == MAX_NOMINATIONS_LEN) {
+    if (nominations.length === MAX_NOMINATIONS_LEN) {
       alert(`You can only have up to ${MAX_NOMINATIONS_LEN} nominations.`)
     } else {
       setNominations([...nominations, movie]);
