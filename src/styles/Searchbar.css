@@ -1,9 +1,5 @@
-.Searchbar {
-  align-items: center;
-  border: 1px solid grey;
-  border-radius: 5px;
-  display: flex;
-  padding: 3px 8px;
+.fa {
+  color: grey;
 }
 
 input {
@@ -16,6 +12,20 @@ input:focus {
   outline: none;
 }
 
-.fa {
-  color: grey;
+.Searchbar {
+  align-items: center;
+  border: 1px solid grey;
+  display: flex;
+  padding: 3px 12px;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.Searchbar_input {
+  padding: 8px;
+  width: 100%;
+}
+
+.Searchbar__hasDropdown {
+  border-radius: 5px 5px 0px 0px;
 }

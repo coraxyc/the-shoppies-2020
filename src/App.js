@@ -13,20 +13,36 @@ function App() {
   const [error, setError] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [nominations, setNominations] = useState([]);
+  const [isSearchQueryMinLength, setIsSearchQueryMinLength] = useState(false);
+  const [isSearchQueryContainedInData, setIsSearchQueryContainedInData] = useState(false);
 
   useEffect(() => {
     if (searchQuery.length < MIN_TITLE_LEN) {
       setError("Please search for a longer title name.");
       setData([]);
+      setIsSearchQueryMinLength(false);
       return;
     }
 
+    /* 
+     * TODO: doesn't work, but check that regardless of whether error occurs, 
+     * if current search query is contained in data to allow data to persist
+     */
+    setIsSearchQueryContainedInData(
+      data.length > 0 && 
+      data.filter((movie) => movie.title.toLowerCase().includes(searchQuery.toLowerCase())).length > 0
+    );
+    
+    setIsSearchQueryMinLength(true);
     fetch(`https://www.omdbapi.com/?s=${searchQuery}&apikey=${API_KEY}`)
       .then(response => response)
       .then(response => response.json())
       .then(response => {
         if (response.Response === "False") {
-          setError(response.Error);
+          if(!isSearchQueryContainedInData) {
+            setError(response.Error);
+            setData([]);
+          }
         } else {
           const info =
             response.Search.reduce(
@@ -34,11 +50,15 @@ function App() {
                 [...acc, { title: movie.Title, year: movie.Year, id: movie.imdbID }]
               ), []
             );
+          info.sort((movie1, movie2) => movie1.title < movie2.title ? -1 : 1);
           setData(info);
         }
       })
       .catch(({ message }) => {
-        setError(message);
+        if(!isSearchQueryContainedInData) {
+          setError(message);
+          setData([]);
+        }
       });
   }, [searchQuery]);
 
@@ -49,6 +69,9 @@ function App() {
       setNominations([...nominations, movie]);
     }
   }
+
+  const isNominateDisabled = (movie) => 
+    nominations.filter((nominatedMovie) => nominatedMovie.id === movie.id).length > 0;
 
   const removeNominatedMovie = (movieToRemove) => {
     if (movieToRemove !== null && movieToRemove !== undefined) {
@@ -61,39 +84,22 @@ function App() {
 
   return (
     <div className="App">
-      <div className="Column">
+      <div className="App_column">
         <h1>The Shoppies</h1>
-        <Card title="Movie title" isBold={true}>
-            <Searchbar setSearchQuery={setSearchQuery} />
-        </Card>
-        <div className="Row">
-          <Card title={`Results for "${searchQuery}"`} isBold={true}>
-            {data.length > 0
-              ? <ul>
-                {data?.map((movie) =>
-                  <div className="Row" key={movie.id}>
-                    <li>{`${movie.title} (${movie.year})`}</li>
-                    <button
-                      onClick={() => addNominatedMovie(movie)}
-                      disabled={
-                        nominations.filter(
-                          (nominatedMovie) =>
-                            nominatedMovie.id === movie.id).length > 0
-                      }>
-                      Nominate
-                      </button>
-                  </div>)}
-              </ul>
-              : <div>
-                {error ? error : "Couldn't find any movies for this title. Try another title."}
-              </div>}
-
-          </Card>
+        <Searchbar
+          addNominatedMovie={addNominatedMovie} 
+          data={data} 
+          error={error}
+          isNominateDisabled={isNominateDisabled}
+          isSearchQueryMinLength={isSearchQueryMinLength}
+          setSearchQuery={setSearchQuery}
+        />
+        <div className="App_nominations">
           <Card title="Nominations" isBold={true}>
             {nominations.length > 0
               ? <ul>
                 {nominations.map((movie) =>
-                  <div className="Row" key={movie.id}>
+                  <div className="App_row" key={movie.id}>
                     <li>{`${movie.title} (${movie.year})`}</li>
                     <button onClick={() => removeNominatedMovie(movie)}>Remove</button>
                   </div>)}

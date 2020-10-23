@@ -4,7 +4,7 @@ import '../styles/Card.css'
 function Card(props) {
   return (
     <div className="Card">
-      <div className="title">
+      <div className="Card_title">
         {props.isBold ? <b>{props.title}</b> : props.title}
       </div>
       {props.children}

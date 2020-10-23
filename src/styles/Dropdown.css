@@ -1,0 +1,30 @@
+.Dropdown {
+  position: absolute;
+  z-index: 100;
+  border: 1px solid grey;
+  border-top: 0px;
+  border-radius: 0px 0px 5px 5px;
+  display: flex;
+  background-color: white;
+  width: 59.89%;
+}
+
+.Dropdown_error {
+  padding: 16px 36px;
+}
+
+.Dropdown_body {
+  width: 100%;
+}
+
+.Dropdown_row {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 36px;
+  height: 25px;
+}
+
+.Dropdown_row:hover {
+  background-color: lightgrey;
+}

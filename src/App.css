@@ -12,17 +12,16 @@ button {
   min-width: 400px;
 }
 
-.Column {
-  display: block;
-
+.App_nominations {
+  position: relative;
+  margin-top: 10px;
 }
 
-.Row {
+.App_column {
+  display: block;
+}
+
+.App_row {
   display: flex;
   margin-bottom: 10px;
-}
-
-.Search {
-  padding: 8px;
-  width: 98%;
 }
