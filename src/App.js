@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import Card from './components/Card.react';
+import Searchbar from './components/Searchbar.react';
 import './App.css';
 
 const API_KEY = process.env.REACT_APP_OMDB_API_KEY;
@@ -62,13 +63,8 @@ function App() {
     <div className="App">
       <div className="Column">
         <h1>The Shoppies</h1>
-        <Card title="Movie title">
-          <input
-            type="text"
-            className="Search"
-            onChange={(event) => setSearchQuery(event.target.value)}
-            placeholder={`Enter a title with ${MIN_TITLE_LEN} letters or more`}
-          />
+        <Card title="Movie title" isBold={true}>
+            <Searchbar setSearchQuery={setSearchQuery} />
         </Card>
         <div className="Row">
           <Card title={`Results for "${searchQuery}"`} isBold={true}>

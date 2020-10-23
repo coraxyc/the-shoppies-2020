@@ -6,6 +6,7 @@ button {
   height: 25px;
   margin-left: 5px;
 }
+
 .App {
   margin: 5% 20%;
   min-width: 400px;
@@ -22,6 +23,6 @@ button {
 }
 
 .Search {
-  width: 98%;
   padding: 8px;
+  width: 98%;
 }

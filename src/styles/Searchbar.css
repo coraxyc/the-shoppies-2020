@@ -1,0 +1,21 @@
+.Searchbar {
+  align-items: center;
+  border: 1px solid grey;
+  border-radius: 5px;
+  display: flex;
+  padding: 3px 8px;
+}
+
+input {
+  border-width: 0;
+  font: inherit;
+  padding-left: 35px;
+}
+
+input:focus {
+  outline: none;
+}
+
+.fa {
+  color: grey;
+}
