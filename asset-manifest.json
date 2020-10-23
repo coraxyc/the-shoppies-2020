@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/the-shoppies-2020/static/css/main.fe5086ae.chunk.css",
-    "main.js": "/the-shoppies-2020/static/js/main.9c8abc7f.chunk.js",
-    "main.js.map": "/the-shoppies-2020/static/js/main.9c8abc7f.chunk.js.map",
+    "main.css": "/the-shoppies-2020/static/css/main.ea156932.chunk.css",
+    "main.js": "/the-shoppies-2020/static/js/main.95e42957.chunk.js",
+    "main.js.map": "/the-shoppies-2020/static/js/main.95e42957.chunk.js.map",
     "runtime-main.js": "/the-shoppies-2020/static/js/runtime-main.a1d1f718.js",
     "runtime-main.js.map": "/the-shoppies-2020/static/js/runtime-main.a1d1f718.js.map",
     "static/js/2.17018321.chunk.js": "/the-shoppies-2020/static/js/2.17018321.chunk.js",
     "static/js/2.17018321.chunk.js.map": "/the-shoppies-2020/static/js/2.17018321.chunk.js.map",
     "index.html": "/the-shoppies-2020/index.html",
-    "precache-manifest.cccda02ba2e0455180d507776b5e0f08.js": "/the-shoppies-2020/precache-manifest.cccda02ba2e0455180d507776b5e0f08.js",
+    "precache-manifest.d75c86c8285d39b17a3cd9ba0b8cc3bd.js": "/the-shoppies-2020/precache-manifest.d75c86c8285d39b17a3cd9ba0b8cc3bd.js",
     "service-worker.js": "/the-shoppies-2020/service-worker.js",
-    "static/css/main.fe5086ae.chunk.css.map": "/the-shoppies-2020/static/css/main.fe5086ae.chunk.css.map",
+    "static/css/main.ea156932.chunk.css.map": "/the-shoppies-2020/static/css/main.ea156932.chunk.css.map",
     "static/js/2.17018321.chunk.js.LICENSE.txt": "/the-shoppies-2020/static/js/2.17018321.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.a1d1f718.js",
     "static/js/2.17018321.chunk.js",
-    "static/css/main.fe5086ae.chunk.css",
-    "static/js/main.9c8abc7f.chunk.js"
+    "static/css/main.ea156932.chunk.css",
+    "static/js/main.95e42957.chunk.js"
   ]
 }
